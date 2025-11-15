@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libro Interactivo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light">
+
+<button class="theme-toggle" onclick="toggleTheme()">🌗 Tema</button>
+
+<header>
+    <h1>📚 Libro Interactivo</h1>
+    <p>"Abre la mente, cierra el scroll. Empieza a leer."</p>
+</header>
+
+<!-- MENÚ PRINCIPAL -->
+<div id="menu" class="menu-container">
+    <button class="btn-menu" onclick="openSection('frases')">💬 Frases</button>
+    <button class="btn-menu" onclick="openSection('poemas')">📝 Poemas</button>
+    <button class="btn-menu" onclick="openSection('cuentos')">📖 Cuentos</button>
+</div>
+
+<!-- SECCIÓN DE FRASES INDEX -->
+<div id="frases" class="content">
+    <h2>Frases</h2>
+    <div class="index-item" onclick="openSection('frase1')">A veces perderse...</div>
+    <div class="index-item" onclick="openSection('frase2')">El mundo cambia...</div>
+    <div class="index-item" onclick="openSection('frase3')">Somos lo que hacemos...</div>
+    <br><span class="back-btn" onclick="goBack()">⬅ Volver</span>
+</div>
+
+<!-- FRASE 1 -->
+<div id="frase1" class="content">
+    <h2>A veces perderse...</h2>
+    <p>A veces perderse es otra forma de encontrarse.</p>
+    <br><span class="back-btn" onclick="openSection('frases')">⬅ Volver al índice</span>
+</div>
+
+<!-- FRASE 2 -->
+<div id="frase2" class="content">
+    <h2>El mundo cambia...</h2>
+    <p>El mundo cambia con tu ejemplo, no con tu opinión.</p>
+    <br><span class="back-btn" onclick="openSection('frases')">⬅ Volver al índice</span>
+</div>
+
+<!-- FRASE 3 -->
+<div id="frase3" class="content">
+    <h2>Somos lo que hacemos...</h2>
+    <p>Somos lo que hacemos repetidamente. La excelencia entonces no es un acto, sino un hábito.</p>
+    <br><span class="back-btn" onclick="openSection('frases')">⬅ Volver al índice</span>
+</div>
+
+<!-- POEMAS INDEX -->
+<div id="poemas" class="content">
+    <h2>Poemas</h2>
+    <div class="index-item" onclick="openSection('poema1')">Poema 1</div>
+    <br><span class="back-btn" onclick="goBack()">⬅ Volver</span>
+</div>
+
+<!-- POEMA 1 -->
+<div id="poema1" class="content">
+    <h2>Poema 1</h2>
+    <p>La noche no es oscura, solo descansa para volver a brillar.</p>
+    <br><span class="back-btn" onclick="openSection('poemas')">⬅ Volver al índice</span>
+</div>
+
+<!-- CUENTOS INDEX -->
+<div id="cuentos" class="content">
+    <h2>Cuentos</h2>
+    <div class="index-item" onclick="openSection('cuento1')">La Puerta</div>
+    <br><span class="back-btn" onclick="goBack()">⬅ Volver</span>
+</div>
+
+<!-- CUENTO 1 -->
+<div id="cuento1" class="content">
+    <h2>La Puerta</h2>
+    <p>Había una vez una puerta que solo se abría si creías en ti...</p>
+    <br><span class="back-btn" onclick="openSection('cuentos')">⬅ Volver al índice</span>
+</div>
+
+<script>
+function openSection(id){
+    document.querySelectorAll(".content").forEach(el => el.style.display = "none");
+    document.getElementById("menu").style.display = "none";
+    document.getElementById(id).style.display = "block";
+}
+function goBack(){
+    document.querySelectorAll(".content").forEach(el => el.style.display = "none");
+    document.getElementById("menu").style.display = "flex";
+}
+function toggleTheme(){
+    const b = document.body;
+    b.dataset.theme = (b.dataset.theme === "light") ? "dark" : "light";
+}
+</script>
+
+</body>
+</html>
